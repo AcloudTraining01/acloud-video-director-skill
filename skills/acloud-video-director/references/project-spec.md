@@ -8,6 +8,7 @@ Required groups:
 
 - `identity`: schema version, route, title, project/revision references.
 - `brief`: goal, audience, platform, language, duration, aspect ratio, tone, CTA.
+- `routePlan`: questionnaire version and the five validated answers specific to the selected format.
 - `brand`: brand-kit reference and the exact revision used.
 - `sources`: user, project, research, stock, or generated inputs with provenance and rights notes.
 - `creative`: style, narration, captions, music, and ordered scenes.

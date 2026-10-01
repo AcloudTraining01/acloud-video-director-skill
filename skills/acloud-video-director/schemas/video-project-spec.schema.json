@@ -144,6 +144,45 @@
         "constraints"
       ]
     },
+    "routePlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "questionnaireVersion": {
+          "const": 1
+        },
+        "answers": {
+          "type": "object",
+          "maxProperties": 20,
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "array",
+                "maxItems": 20,
+                "items": {
+                  "type": "string",
+                  "maxLength": 120
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "questionnaireVersion",
+        "answers"
+      ]
+    },
     "brand": {
       "type": "object",
       "additionalProperties": false,
@@ -511,6 +550,7 @@
           "research",
           "transcription",
           "stock_search",
+          "screen_capture",
           "image_generation",
           "video_generation",
           "narration",
@@ -541,6 +581,7 @@
                   "research",
                   "transcription",
                   "stock_search",
+                  "screen_capture",
                   "image_generation",
                   "video_generation",
                   "narration",
@@ -634,6 +675,7 @@
                   "research",
                   "transcription",
                   "stock_search",
+                  "screen_capture",
                   "image_generation",
                   "video_generation",
                   "narration",
@@ -883,6 +925,7 @@
     "schemaVersion",
     "identity",
     "brief",
+    "routePlan",
     "brand",
     "sources",
     "creative",

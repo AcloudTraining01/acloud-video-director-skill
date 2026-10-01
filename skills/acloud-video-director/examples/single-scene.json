@@ -17,6 +17,16 @@
     "callToAction": "Join the waitlist",
     "constraints": []
   },
+  "routePlan": {
+    "questionnaireVersion": 1,
+    "answers": {
+      "scenePurpose": "announcement",
+      "subjectAction": "A planner opens and three priority cards settle into place.",
+      "visualMedium": "motion_graphics",
+      "cameraMovement": "locked",
+      "audioMode": "narration"
+    }
+  },
   "brand": { "brandKit": null, "snapshotLabel": "" },
   "sources": [],
   "creative": {

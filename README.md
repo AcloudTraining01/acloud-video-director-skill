@@ -53,7 +53,8 @@ npm test
 
 ## What the skill governs
 
-- Eight production routes: long form, short form, drag-and-drop animation, single scene, documentary montage, product demo, podcast repurposing, and faceless video.
+- Eight production routes: Long-Form Video, Social Short, Motion Canvas, Single Scene, Documentary Story, Product Demo, Podcast Clips, and Faceless Explainer.
+- A versioned machine-readable intake catalog with eight shared questions and five format-specific questions per route.
 - A resumable lifecycle from intake through export.
 - Provider-neutral capability planning and explicit fallbacks.
 - Version-bound approvals, cost reservations, provenance, and reuse of successful billable outputs.

@@ -1,0 +1,1310 @@
+{
+  "questionnaireVersion": 1,
+  "sharedQuestions": [
+    {
+      "id": "objective",
+      "target": "brief.goal",
+      "label": "What should this video help the viewer understand, feel, or do?",
+      "help": "Describe one primary outcome. This becomes the creative north star and keeps later generation focused.",
+      "input": "textarea",
+      "required": true,
+      "placeholder": "Explain the result this video should create for the viewer."
+    },
+    {
+      "id": "audience",
+      "target": "brief.audience",
+      "label": "Who is this video for?",
+      "help": "Name the audience, their current situation, and what they already know.",
+      "input": "textarea",
+      "required": true,
+      "placeholder": "For example: first-time Etsy sellers who have listings but no repeatable promotion plan."
+    },
+    {
+      "id": "platform",
+      "target": "brief.platform",
+      "label": "Where will the main version be watched?",
+      "help": "Choose the primary destination. Additional deliverables can be requested later without changing the main route.",
+      "input": "single_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "youtube",
+          "label": "YouTube"
+        },
+        {
+          "value": "tiktok",
+          "label": "TikTok"
+        },
+        {
+          "value": "instagram",
+          "label": "Instagram"
+        },
+        {
+          "value": "facebook",
+          "label": "Facebook"
+        },
+        {
+          "value": "linkedin",
+          "label": "LinkedIn"
+        },
+        {
+          "value": "website",
+          "label": "Website or landing page"
+        },
+        {
+          "value": "download",
+          "label": "Download or course portal"
+        },
+        {
+          "value": "other",
+          "label": "Another destination"
+        }
+      ]
+    },
+    {
+      "id": "targetDurationSeconds",
+      "target": "brief.targetDurationSeconds",
+      "label": "How long should the main version be?",
+      "help": "Use the route guidance as a starting point. Final scene timing must stay within the approved target.",
+      "input": "number",
+      "required": true,
+      "min": 3,
+      "max": 14400,
+      "unit": "seconds"
+    },
+    {
+      "id": "aspectRatio",
+      "target": "brief.aspectRatio",
+      "label": "Which frame should we design first?",
+      "help": "Choose the primary canvas. Reframed variants remain separate reviewable outputs.",
+      "input": "single_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "16:9",
+          "label": "Landscape \u00b7 16:9"
+        },
+        {
+          "value": "9:16",
+          "label": "Vertical \u00b7 9:16"
+        },
+        {
+          "value": "1:1",
+          "label": "Square \u00b7 1:1"
+        },
+        {
+          "value": "4:5",
+          "label": "Portrait feed \u00b7 4:5"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "target": "brief.language",
+      "label": "What language should the finished video use?",
+      "help": "Name the spoken and on-screen language. Translations require their own review.",
+      "input": "text",
+      "required": true,
+      "placeholder": "English"
+    },
+    {
+      "id": "tone",
+      "target": "brief.tone",
+      "label": "How should the video sound and feel?",
+      "help": "Use plain creative direction such as calm and credible, playful and fast, or premium and minimal.",
+      "input": "text",
+      "required": true,
+      "placeholder": "Clear, practical, and optimistic"
+    },
+    {
+      "id": "callToAction",
+      "target": "brief.callToAction",
+      "label": "What should the viewer do next?",
+      "help": "Leave this blank only when the format intentionally has no call to action.",
+      "input": "text",
+      "required": false,
+      "placeholder": "Start the free trial"
+    }
+  ],
+  "routes": [
+    {
+      "id": "long_form",
+      "name": "Long-Form Video",
+      "shortName": "Long Form",
+      "referenceTerm": "Long-form video",
+      "description": "Build a chaptered video with a sustained argument, tutorial, story, or lesson.",
+      "bestFor": [
+        "YouTube episodes",
+        "training lessons",
+        "deep tutorials",
+        "case studies"
+      ],
+      "defaultPlatform": "youtube",
+      "defaultAspectRatio": "16:9",
+      "duration": {
+        "minSeconds": 180,
+        "maxSeconds": 3600,
+        "recommendedSeconds": 600
+      },
+      "defaultCompositor": "hyperframes",
+      "defaultCapabilities": [
+        "research",
+        "stock_search",
+        "narration",
+        "composition",
+        "media_editing",
+        "captions",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "sourceStage",
+          "target": "routePlan.answers.sourceStage",
+          "label": "What are we starting from?",
+          "help": "This determines whether the first production step is research, outlining, script adaptation, or transcript editing.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "topic_only",
+              "label": "A topic or rough idea"
+            },
+            {
+              "value": "outline",
+              "label": "An approved outline"
+            },
+            {
+              "value": "finished_script",
+              "label": "A finished script"
+            },
+            {
+              "value": "existing_recording",
+              "label": "An existing recording"
+            }
+          ]
+        },
+        {
+          "id": "narrativeShape",
+          "target": "routePlan.answers.narrativeShape",
+          "label": "Which structure best fits the story?",
+          "help": "Choose the dominant structure; individual chapters can still vary.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "tutorial",
+              "label": "Step-by-step tutorial"
+            },
+            {
+              "value": "documentary",
+              "label": "Documentary narrative"
+            },
+            {
+              "value": "case_study",
+              "label": "Case study"
+            },
+            {
+              "value": "list",
+              "label": "Numbered or ranked list"
+            },
+            {
+              "value": "commentary",
+              "label": "Commentary or analysis"
+            }
+          ]
+        },
+        {
+          "id": "sectionCount",
+          "target": "routePlan.answers.sectionCount",
+          "label": "How many major sections should it contain?",
+          "help": "Count chapters, not individual shots.",
+          "input": "number",
+          "required": true,
+          "min": 3,
+          "max": 20,
+          "unit": "sections"
+        },
+        {
+          "id": "visualApproach",
+          "target": "routePlan.answers.visualApproach",
+          "label": "What should carry the visuals?",
+          "help": "Pick the main visual system so the storyboard does not become an inconsistent mix of styles.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "mixed_media",
+              "label": "A controlled mix of footage, graphics, and text"
+            },
+            {
+              "value": "screen_led",
+              "label": "Screen recordings and interface demonstrations"
+            },
+            {
+              "value": "stock_led",
+              "label": "Licensed footage and source-led B-roll"
+            },
+            {
+              "value": "presenter_led",
+              "label": "A presenter or supplied talking-head recording"
+            },
+            {
+              "value": "motion_graphics",
+              "label": "Motion graphics, diagrams, and typography"
+            }
+          ]
+        },
+        {
+          "id": "researchStandard",
+          "target": "routePlan.answers.researchStandard",
+          "label": "What evidence standard should the script follow?",
+          "help": "Current research adds source work and review. It never authorizes copying or unsupported claims.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "user_sources_only",
+              "label": "Use only sources I provide"
+            },
+            {
+              "value": "current_web_research",
+              "label": "Research current public sources"
+            },
+            {
+              "value": "source_every_claim",
+              "label": "Require a source for every factual claim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short_form",
+      "name": "Social Short",
+      "shortName": "Social Short",
+      "referenceTerm": "Short-form video",
+      "description": "Create a fast vertical or square video with one hook, one payoff, and one next action.",
+      "bestFor": [
+        "TikTok",
+        "Instagram Reels",
+        "YouTube Shorts",
+        "paid social"
+      ],
+      "defaultPlatform": "instagram",
+      "defaultAspectRatio": "9:16",
+      "duration": {
+        "minSeconds": 6,
+        "maxSeconds": 90,
+        "recommendedSeconds": 30
+      },
+      "defaultCompositor": "ffmpeg",
+      "defaultCapabilities": [
+        "composition",
+        "media_editing",
+        "captions",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "shortPurpose",
+          "target": "routePlan.answers.shortPurpose",
+          "label": "What job should this short do?",
+          "help": "A short performs better when it has one job instead of several competing goals.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "educate",
+              "label": "Teach one useful idea"
+            },
+            {
+              "value": "promote",
+              "label": "Promote an offer or product"
+            },
+            {
+              "value": "entertain",
+              "label": "Entertain or tell a quick story"
+            },
+            {
+              "value": "announce",
+              "label": "Make an announcement"
+            },
+            {
+              "value": "extract_highlight",
+              "label": "Turn an existing moment into a highlight"
+            }
+          ]
+        },
+        {
+          "id": "openingHook",
+          "target": "routePlan.answers.openingHook",
+          "label": "What should earn attention in the first two seconds?",
+          "help": "State the tension, result, surprise, or visual action. Avoid vague introductions.",
+          "input": "textarea",
+          "required": true,
+          "placeholder": "For example: Show the finished dashboard before explaining how it was built."
+        },
+        {
+          "id": "sourceMode",
+          "target": "routePlan.answers.sourceMode",
+          "label": "Where should the short come from?",
+          "help": "This separates original creation from transcript-led repurposing and product-asset editing.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "original",
+              "label": "Create it from this brief"
+            },
+            {
+              "value": "existing_long_form",
+              "label": "Extract it from a longer recording"
+            },
+            {
+              "value": "product_assets",
+              "label": "Build it from product or brand assets"
+            },
+            {
+              "value": "trend_response",
+              "label": "Respond to a current topic with sourced context"
+            }
+          ]
+        },
+        {
+          "id": "captionStyle",
+          "target": "routePlan.answers.captionStyle",
+          "label": "How prominent should captions be?",
+          "help": "Caption treatment affects framing and safe-area planning from the first storyboard.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "clean",
+              "label": "Clean and understated"
+            },
+            {
+              "value": "bold",
+              "label": "Bold social captions"
+            },
+            {
+              "value": "karaoke",
+              "label": "Word-by-word emphasis"
+            },
+            {
+              "value": "minimal",
+              "label": "Minimal captions only when needed"
+            }
+          ]
+        },
+        {
+          "id": "variantCount",
+          "target": "routePlan.answers.variantCount",
+          "label": "How many hook or edit variants should we plan?",
+          "help": "Variants share approved source material but remain separate outputs for review.",
+          "input": "number",
+          "required": true,
+          "min": 1,
+          "max": 10,
+          "unit": "variants"
+        }
+      ]
+    },
+    {
+      "id": "drag_drop_animation",
+      "name": "Motion Canvas",
+      "shortName": "Motion Canvas",
+      "referenceTerm": "Drag-and-drop animation",
+      "description": "Animate supplied text, brand assets, images, charts, and cards on a controlled timeline.",
+      "bestFor": [
+        "kinetic typography",
+        "animated explainers",
+        "logo reveals",
+        "data stories"
+      ],
+      "defaultPlatform": "website",
+      "defaultAspectRatio": "16:9",
+      "duration": {
+        "minSeconds": 3,
+        "maxSeconds": 300,
+        "recommendedSeconds": 30
+      },
+      "defaultCompositor": "hyperframes",
+      "defaultCapabilities": [
+        "composition",
+        "media_editing",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "assetSource",
+          "target": "routePlan.answers.assetSource",
+          "label": "Which assets should appear on the canvas?",
+          "help": "Select every approved source. Missing assets remain explicit requests rather than invented substitutes.",
+          "input": "multi_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "uploads",
+              "label": "My uploads"
+            },
+            {
+              "value": "brand_kit",
+              "label": "Brand Kit"
+            },
+            {
+              "value": "library",
+              "label": "Existing Library assets"
+            },
+            {
+              "value": "licensed_stock",
+              "label": "Licensed stock"
+            },
+            {
+              "value": "text_only",
+              "label": "Text and shapes only"
+            }
+          ]
+        },
+        {
+          "id": "motionPattern",
+          "target": "routePlan.answers.motionPattern",
+          "label": "Which motion system should lead the design?",
+          "help": "This sets a coherent visual grammar for the whole composition.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "kinetic_type",
+              "label": "Kinetic typography"
+            },
+            {
+              "value": "card_sequence",
+              "label": "Cards and interface panels"
+            },
+            {
+              "value": "infographic",
+              "label": "Charts, diagrams, and data"
+            },
+            {
+              "value": "slideshow",
+              "label": "Editorial slideshow"
+            },
+            {
+              "value": "logo_reveal",
+              "label": "Logo or brand reveal"
+            }
+          ]
+        },
+        {
+          "id": "timelineControl",
+          "target": "routePlan.answers.timelineControl",
+          "label": "How should timing be established?",
+          "help": "Automatic timing is a first draft; scene-by-scene timing gives precise control.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "automatic",
+              "label": "Create a timing proposal"
+            },
+            {
+              "value": "scene_by_scene",
+              "label": "I will set each scene duration"
+            }
+          ]
+        },
+        {
+          "id": "motionIntensity",
+          "target": "routePlan.answers.motionIntensity",
+          "label": "How much movement should the design use?",
+          "help": "Motion level controls transition distance, easing, camera movement, and simultaneous animation.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "subtle",
+              "label": "Subtle and premium"
+            },
+            {
+              "value": "balanced",
+              "label": "Balanced"
+            },
+            {
+              "value": "energetic",
+              "label": "Energetic"
+            }
+          ]
+        },
+        {
+          "id": "loopMode",
+          "target": "routePlan.answers.loopMode",
+          "label": "Should the ending connect cleanly back to the beginning?",
+          "help": "Enable this for displays, backgrounds, and repeating social assets.",
+          "input": "boolean",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "single_scene",
+      "name": "Single Scene",
+      "shortName": "Single Scene",
+      "referenceTerm": "Single-scene video",
+      "description": "Design one focused visual moment with exact action, camera, timing, text, and sound.",
+      "bestFor": [
+        "hero loops",
+        "announcements",
+        "title cards",
+        "product moments"
+      ],
+      "defaultPlatform": "website",
+      "defaultAspectRatio": "16:9",
+      "duration": {
+        "minSeconds": 3,
+        "maxSeconds": 30,
+        "recommendedSeconds": 8
+      },
+      "defaultCompositor": "hyperframes",
+      "defaultCapabilities": [
+        "composition",
+        "media_editing",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "scenePurpose",
+          "target": "routePlan.answers.scenePurpose",
+          "label": "What is this scene responsible for?",
+          "help": "One scene should communicate one clear idea or transition.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "hero",
+              "label": "Website or campaign hero"
+            },
+            {
+              "value": "announcement",
+              "label": "Announcement"
+            },
+            {
+              "value": "quote",
+              "label": "Quote or statement"
+            },
+            {
+              "value": "product_spotlight",
+              "label": "Product spotlight"
+            },
+            {
+              "value": "transition",
+              "label": "Section transition"
+            },
+            {
+              "value": "end_card",
+              "label": "End card or call to action"
+            }
+          ]
+        },
+        {
+          "id": "subjectAction",
+          "target": "routePlan.answers.subjectAction",
+          "label": "What exactly happens from the first frame to the last?",
+          "help": "Describe subject, setting, action, and final state. Use observable actions rather than mood alone.",
+          "input": "textarea",
+          "required": true,
+          "placeholder": "A planner opens, three priority cards slide into place, and the logo resolves at center."
+        },
+        {
+          "id": "visualMedium",
+          "target": "routePlan.answers.visualMedium",
+          "label": "What should the scene be built from?",
+          "help": "Generated media remains an optional provider step and requires its own estimate.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "upload",
+              "label": "An uploaded asset"
+            },
+            {
+              "value": "motion_graphics",
+              "label": "Motion graphics and typography"
+            },
+            {
+              "value": "generated_image",
+              "label": "A generated image with motion"
+            },
+            {
+              "value": "generated_video",
+              "label": "A generated video clip"
+            },
+            {
+              "value": "stock",
+              "label": "Licensed stock"
+            }
+          ]
+        },
+        {
+          "id": "cameraMovement",
+          "target": "routePlan.answers.cameraMovement",
+          "label": "How should the viewer's point of view move?",
+          "help": "Choose one dominant move so the result stays readable.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "locked",
+              "label": "Locked camera"
+            },
+            {
+              "value": "push",
+              "label": "Slow push in"
+            },
+            {
+              "value": "pull",
+              "label": "Pull back"
+            },
+            {
+              "value": "pan",
+              "label": "Pan"
+            },
+            {
+              "value": "orbit",
+              "label": "Orbit"
+            },
+            {
+              "value": "handheld",
+              "label": "Controlled handheld"
+            },
+            {
+              "value": "custom",
+              "label": "Custom movement"
+            }
+          ]
+        },
+        {
+          "id": "audioMode",
+          "target": "routePlan.answers.audioMode",
+          "label": "What should we hear?",
+          "help": "Audio choice determines narration, dialogue timing, music, and caption needs.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "narration",
+              "label": "Voiceover narration"
+            },
+            {
+              "value": "dialogue",
+              "label": "On-screen dialogue"
+            },
+            {
+              "value": "music_only",
+              "label": "Music or sound design only"
+            },
+            {
+              "value": "silent",
+              "label": "Silent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "documentary_montage",
+      "name": "Documentary Story",
+      "shortName": "Documentary",
+      "referenceTerm": "Documentary montage",
+      "description": "Build a source-led story in which footage, records, interviews, and citations carry the argument.",
+      "bestFor": [
+        "mini documentaries",
+        "brand histories",
+        "profiles",
+        "evidence-led stories"
+      ],
+      "defaultPlatform": "youtube",
+      "defaultAspectRatio": "16:9",
+      "duration": {
+        "minSeconds": 60,
+        "maxSeconds": 3600,
+        "recommendedSeconds": 480
+      },
+      "defaultCompositor": "ffmpeg",
+      "defaultCapabilities": [
+        "research",
+        "transcription",
+        "stock_search",
+        "narration",
+        "composition",
+        "media_editing",
+        "captions",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "storyThesis",
+          "target": "routePlan.answers.storyThesis",
+          "label": "What is the central question or thesis?",
+          "help": "The finished story should test or support this idea with traceable evidence.",
+          "input": "textarea",
+          "required": true,
+          "placeholder": "What changed, why did it matter, and what can the evidence actually support?"
+        },
+        {
+          "id": "sourcePolicy",
+          "target": "routePlan.answers.sourcePolicy",
+          "label": "Which source types may we use?",
+          "help": "Every selected source still requires provenance and rights review.",
+          "input": "multi_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "user_uploads",
+              "label": "My uploads"
+            },
+            {
+              "value": "library",
+              "label": "Existing Library sources"
+            },
+            {
+              "value": "licensed_stock",
+              "label": "Licensed stock"
+            },
+            {
+              "value": "public_archives",
+              "label": "Public archives"
+            },
+            {
+              "value": "current_web_research",
+              "label": "Current public web research"
+            }
+          ]
+        },
+        {
+          "id": "storyStructure",
+          "target": "routePlan.answers.storyStructure",
+          "label": "How should the evidence unfold?",
+          "help": "Select the primary editorial structure.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "chronological",
+              "label": "Chronological"
+            },
+            {
+              "value": "thematic",
+              "label": "Thematic chapters"
+            },
+            {
+              "value": "problem_solution",
+              "label": "Problem and response"
+            },
+            {
+              "value": "profile",
+              "label": "Person or company profile"
+            },
+            {
+              "value": "investigation",
+              "label": "Question-led investigation"
+            }
+          ]
+        },
+        {
+          "id": "evidenceStandard",
+          "target": "routePlan.answers.evidenceStandard",
+          "label": "How should sources appear in the deliverable?",
+          "help": "On-screen citations help viewers; the source log preserves production evidence.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "cite_on_screen",
+              "label": "On-screen citations"
+            },
+            {
+              "value": "source_log_only",
+              "label": "Production source log"
+            },
+            {
+              "value": "both",
+              "label": "Both on-screen citations and source log"
+            }
+          ]
+        },
+        {
+          "id": "interviewMode",
+          "target": "routePlan.answers.interviewMode",
+          "label": "How should interview material be handled?",
+          "help": "Only use supplied or licensed recordings and accurate excerpts.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "none",
+              "label": "No interviews"
+            },
+            {
+              "value": "supplied_interviews",
+              "label": "Use supplied interview recordings"
+            },
+            {
+              "value": "sourced_excerpts",
+              "label": "Narrate verified excerpts from supplied sources"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "product_demo",
+      "name": "Product Demo",
+      "shortName": "Product Demo",
+      "referenceTerm": "Product demonstration",
+      "description": "Show a real product or workflow through a clear user journey with controlled captures and callouts.",
+      "bestFor": [
+        "software walkthroughs",
+        "feature launches",
+        "digital-product demos",
+        "sales pages"
+      ],
+      "defaultPlatform": "website",
+      "defaultAspectRatio": "16:9",
+      "duration": {
+        "minSeconds": 15,
+        "maxSeconds": 600,
+        "recommendedSeconds": 90
+      },
+      "defaultCompositor": "ffmpeg",
+      "defaultCapabilities": [
+        "screen_capture",
+        "narration",
+        "composition",
+        "media_editing",
+        "captions",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "demoSubject",
+          "target": "routePlan.answers.demoSubject",
+          "label": "What are we demonstrating?",
+          "help": "This determines the capture plan and what counts as accurate product behavior.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "website",
+              "label": "Website"
+            },
+            {
+              "value": "app",
+              "label": "Software or app"
+            },
+            {
+              "value": "digital_product",
+              "label": "Digital product or template"
+            },
+            {
+              "value": "physical_product",
+              "label": "Physical product"
+            },
+            {
+              "value": "workflow",
+              "label": "Process or workflow"
+            }
+          ]
+        },
+        {
+          "id": "captureSource",
+          "target": "routePlan.answers.captureSource",
+          "label": "Which approved visuals are available?",
+          "help": "Choose every real source available before requesting mockups or generated inserts.",
+          "input": "multi_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "screen_recording",
+              "label": "Screen recording"
+            },
+            {
+              "value": "product_images",
+              "label": "Product images"
+            },
+            {
+              "value": "product_video",
+              "label": "Product footage"
+            },
+            {
+              "value": "live_capture_plan",
+              "label": "A new capture we need to record"
+            },
+            {
+              "value": "generated_mockups",
+              "label": "Generated mockups for supporting shots"
+            }
+          ]
+        },
+        {
+          "id": "userJourney",
+          "target": "routePlan.answers.userJourney",
+          "label": "Which user journey should the demo prove?",
+          "help": "List the starting state, essential actions, and visible result. Avoid a feature inventory.",
+          "input": "textarea",
+          "required": true,
+          "placeholder": "Start on the dashboard, create a planner, customize the colors, and export the finished PDF."
+        },
+        {
+          "id": "privacyTreatment",
+          "target": "routePlan.answers.privacyTreatment",
+          "label": "How should private or customer information be handled?",
+          "help": "Privacy treatment is part of capture planning and must happen before export.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "none",
+              "label": "No sensitive information appears"
+            },
+            {
+              "value": "blur_sensitive",
+              "label": "Blur sensitive fields"
+            },
+            {
+              "value": "replace_demo_data",
+              "label": "Use approved demonstration data"
+            }
+          ]
+        },
+        {
+          "id": "highlightStyle",
+          "target": "routePlan.answers.highlightStyle",
+          "label": "How should the viewer's attention be guided?",
+          "help": "Choose one dominant guidance system to keep the demo clean.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "cursor_zoom",
+              "label": "Cursor focus and controlled zooms"
+            },
+            {
+              "value": "callouts",
+              "label": "Callouts and labels"
+            },
+            {
+              "value": "split_screen",
+              "label": "Interface plus explanation"
+            },
+            {
+              "value": "clean_cut",
+              "label": "Clean cuts with minimal overlays"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcast_repurpose",
+      "name": "Podcast Clips",
+      "shortName": "Podcast Clips",
+      "referenceTerm": "Podcast repurposing",
+      "description": "Turn an approved podcast or interview recording into transcript-led, reviewable social clips.",
+      "bestFor": [
+        "speaker highlights",
+        "educational clips",
+        "episode promotion",
+        "quote videos"
+      ],
+      "defaultPlatform": "instagram",
+      "defaultAspectRatio": "9:16",
+      "duration": {
+        "minSeconds": 15,
+        "maxSeconds": 90,
+        "recommendedSeconds": 45
+      },
+      "defaultCompositor": "ffmpeg",
+      "defaultCapabilities": [
+        "transcription",
+        "media_editing",
+        "captions",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "sourceAssetId",
+          "target": "routePlan.answers.sourceAssetId",
+          "label": "Which recording should we use?",
+          "help": "Choose an uploaded or Library asset you own or have permission to edit. A public URL is not treated as permission.",
+          "input": "asset",
+          "required": true
+        },
+        {
+          "id": "clipObjective",
+          "target": "routePlan.answers.clipObjective",
+          "label": "What kinds of moments should we look for?",
+          "help": "This guides transcript selection without changing the speaker's meaning.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "best_insights",
+              "label": "Strongest insights"
+            },
+            {
+              "value": "educational",
+              "label": "Educational explanations"
+            },
+            {
+              "value": "promotional",
+              "label": "Episode promotion"
+            },
+            {
+              "value": "story_moments",
+              "label": "Personal or story moments"
+            },
+            {
+              "value": "speaker_highlights",
+              "label": "A specific speaker's best moments"
+            }
+          ]
+        },
+        {
+          "id": "clipCount",
+          "target": "routePlan.answers.clipCount",
+          "label": "How many clip candidates should we prepare?",
+          "help": "Candidates remain drafts until the exact transcript ranges and framing are reviewed.",
+          "input": "number",
+          "required": true,
+          "min": 1,
+          "max": 20,
+          "unit": "clips"
+        },
+        {
+          "id": "clipLength",
+          "target": "routePlan.answers.clipLength",
+          "label": "What length should each clip target?",
+          "help": "The final cut may be shorter when the thought ends naturally.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "under_30",
+              "label": "Under 30 seconds"
+            },
+            {
+              "value": "30_60",
+              "label": "30\u201360 seconds"
+            },
+            {
+              "value": "60_90",
+              "label": "60\u201390 seconds"
+            }
+          ]
+        },
+        {
+          "id": "speakerLayout",
+          "target": "routePlan.answers.speakerLayout",
+          "label": "How should speakers and supporting visuals be framed?",
+          "help": "This determines crop review and when B-roll is needed.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "active_speaker",
+              "label": "Active speaker"
+            },
+            {
+              "value": "split_screen",
+              "label": "Split screen"
+            },
+            {
+              "value": "audio_waveform",
+              "label": "Audio waveform with branded visuals"
+            },
+            {
+              "value": "broll_overlay",
+              "label": "Speaker audio with reviewed B-roll"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faceless_video",
+      "name": "Faceless Explainer",
+      "shortName": "Faceless",
+      "referenceTerm": "Faceless video",
+      "description": "Create a narration-led video using typography, diagrams, stock, stills, screen captures, or generated media.",
+      "bestFor": [
+        "educational channels",
+        "list videos",
+        "brand explainers",
+        "narrated stories"
+      ],
+      "defaultPlatform": "youtube",
+      "defaultAspectRatio": "16:9",
+      "duration": {
+        "minSeconds": 30,
+        "maxSeconds": 1800,
+        "recommendedSeconds": 300
+      },
+      "defaultCompositor": "hyperframes",
+      "defaultCapabilities": [
+        "research",
+        "stock_search",
+        "narration",
+        "composition",
+        "media_editing",
+        "captions",
+        "audio_mix",
+        "quality_review",
+        "export"
+      ],
+      "questions": [
+        {
+          "id": "scriptStage",
+          "target": "routePlan.answers.scriptStage",
+          "label": "What are we starting from?",
+          "help": "This decides whether the workflow begins with research, outlining, script adaptation, or audio timing.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "topic",
+              "label": "Topic only"
+            },
+            {
+              "value": "outline",
+              "label": "Approved outline"
+            },
+            {
+              "value": "finished_script",
+              "label": "Finished script"
+            },
+            {
+              "value": "existing_audio",
+              "label": "Existing narration or audio"
+            }
+          ]
+        },
+        {
+          "id": "storyAngle",
+          "target": "routePlan.answers.storyAngle",
+          "label": "Which editorial angle should lead?",
+          "help": "Choose one primary angle so the hook, scenes, and pacing support the same promise.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "how_to",
+              "label": "How-to"
+            },
+            {
+              "value": "list",
+              "label": "List or countdown"
+            },
+            {
+              "value": "explainer",
+              "label": "Concept explainer"
+            },
+            {
+              "value": "case_study",
+              "label": "Case study"
+            },
+            {
+              "value": "commentary",
+              "label": "Commentary or analysis"
+            }
+          ]
+        },
+        {
+          "id": "visualSystem",
+          "target": "routePlan.answers.visualSystem",
+          "label": "What should carry the visual identity?",
+          "help": "This defines the reusable visual language before individual assets are sourced.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "stock_motion",
+              "label": "Licensed stock with motion graphics"
+            },
+            {
+              "value": "illustrated",
+              "label": "Illustrations and diagrams"
+            },
+            {
+              "value": "kinetic_type",
+              "label": "Kinetic typography"
+            },
+            {
+              "value": "screen_diagrams",
+              "label": "Screen captures and diagrams"
+            },
+            {
+              "value": "mixed",
+              "label": "A controlled mixed-media system"
+            }
+          ]
+        },
+        {
+          "id": "narratorStyle",
+          "target": "routePlan.answers.narratorStyle",
+          "label": "How should narration sound?",
+          "help": "Choose direction first; provider and voice selection happen during approved routing.",
+          "input": "single_choice",
+          "required": true,
+          "options": [
+            {
+              "value": "warm",
+              "label": "Warm and conversational"
+            },
+            {
+              "value": "authoritative",
+              "label": "Authoritative and measured"
+            },
+            {
+              "value": "energetic",
+              "label": "Energetic"
+            },
+            {
+              "value": "calm",
+              "label": "Calm and reflective"
+            },
+            {
+              "value": "user_recorded",
+              "label": "Use my approved recording"
+            }
+          ]
+        },
+        {
+          "id": "reuseTemplate",
+          "target": "routePlan.answers.reuseTemplate",
+          "label": "Should this establish a reusable episode template?",
+          "help": "A reusable template locks approved typography, layout, captions, transitions, and audio treatment while leaving content editable.",
+          "input": "boolean",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

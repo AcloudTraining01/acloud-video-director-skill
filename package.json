@@ -1,6 +1,6 @@
 {
   "name": "acloud-video-director-skill",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Portable ACloud Video Director agent skill and canonical VideoProjectSpec validator",

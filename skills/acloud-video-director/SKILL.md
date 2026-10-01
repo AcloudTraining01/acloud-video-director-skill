@@ -3,7 +3,7 @@ name: acloud-video-director
 description: Plan, route, and govern video projects from a questionnaire or brief through storyboard, assets, approval, rendering, QA, and export. Use for end-to-end video production planning and orchestration; use a media editing skill for a single low-level edit.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   author: Acloud TechSolutions
   tags: [video-production, storyboarding, orchestration, ffmpeg, hyperframes]
 ---
@@ -23,7 +23,7 @@ For the contract and storage boundary, read [references/project-spec.md](referen
 
 ## Route the production
 
-Choose exactly one route from the spec: `long_form`, `short_form`, `drag_drop_animation`, `single_scene`, `documentary_montage`, `product_demo`, `podcast_repurpose`, or `faceless_video`. Read [references/routing.md](references/routing.md) when selecting or changing a route.
+Choose exactly one route from the spec: `long_form`, `short_form`, `drag_drop_animation`, `single_scene`, `documentary_montage`, `product_demo`, `podcast_repurpose`, or `faceless_video`. Read [references/routing.md](references/routing.md) when selecting or changing a route, and use [schemas/video-format-routes.json](schemas/video-format-routes.json) as the machine-readable questionnaire catalog.
 
 Route selection does not choose a paid provider. Record required capabilities first; resolve providers during preflight using current availability, entitlement, budget, and output constraints.
 
