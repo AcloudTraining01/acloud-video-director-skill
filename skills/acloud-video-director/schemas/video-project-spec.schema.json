@@ -1,0 +1,896 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://acloudtechsolutions.com/schemas/video-project-spec/1.0.json",
+  "title": "ACloud VideoProjectSpec",
+  "description": "Provider-neutral, versioned plan for an ACloud video production.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "project": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id",
+            "revision"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "route": {
+          "type": "string",
+          "enum": [
+            "long_form",
+            "short_form",
+            "drag_drop_animation",
+            "single_scene",
+            "documentary_montage",
+            "product_demo",
+            "podcast_repurpose",
+            "faceless_video"
+          ]
+        },
+        "createdFrom": {
+          "type": "string",
+          "enum": [
+            "questionnaire",
+            "prompt",
+            "upload",
+            "project",
+            "workflow"
+          ]
+        }
+      },
+      "required": [
+        "project",
+        "title",
+        "route",
+        "createdFrom"
+      ]
+    },
+    "brief": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "goal": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "audience": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "platform": {
+          "type": "string",
+          "enum": [
+            "youtube",
+            "tiktok",
+            "instagram",
+            "facebook",
+            "linkedin",
+            "website",
+            "download",
+            "other"
+          ]
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "targetDurationSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 14400
+        },
+        "aspectRatio": {
+          "type": "string",
+          "enum": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:5",
+            "custom"
+          ]
+        },
+        "tone": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "callToAction": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "goal",
+        "audience",
+        "platform",
+        "language",
+        "targetDurationSeconds",
+        "aspectRatio",
+        "tone",
+        "callToAction",
+        "constraints"
+      ]
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "brandKit": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "id",
+                "revision"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "snapshotLabel": {
+          "type": "string",
+          "maxLength": 160
+        }
+      },
+      "required": [
+        "brandKit",
+        "snapshotLabel"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "upload",
+              "project",
+              "research",
+              "stock",
+              "generated",
+              "brand"
+            ]
+          },
+          "uri": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "sourceUrl": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "maxLength": 2000
+              },
+              {
+                "const": ""
+              }
+            ]
+          },
+          "provider": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "license": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "rightsReviewed": {
+            "type": "boolean"
+          },
+          "checksum": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "const": ""
+              }
+            ]
+          },
+          "retrievedAt": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "const": ""
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "uri",
+          "title",
+          "sourceUrl",
+          "provider",
+          "license",
+          "rightsReviewed",
+          "checksum",
+          "retrievedAt"
+        ]
+      },
+      "maxItems": 500
+    },
+    "creative": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "style": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "narration": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "voiceId": {
+              "type": "string",
+              "maxLength": 160
+            },
+            "providerPreference": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "pronunciationNotes": {
+              "type": "string",
+              "maxLength": 3000
+            }
+          },
+          "required": [
+            "enabled",
+            "voiceId",
+            "providerPreference",
+            "pronunciationNotes"
+          ]
+        },
+        "captions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "style": {
+              "type": "string",
+              "enum": [
+                "clean",
+                "bold",
+                "karaoke",
+                "custom"
+              ]
+            }
+          },
+          "required": [
+            "enabled",
+            "style"
+          ]
+        },
+        "music": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "assetId": {
+              "type": "string",
+              "maxLength": 160
+            },
+            "license": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "ducking": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "enabled",
+            "assetId",
+            "license",
+            "ducking"
+          ]
+        },
+        "scenes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "order": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "durationSeconds": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 900
+              },
+              "narration": {
+                "type": "string",
+                "maxLength": 8000
+              },
+              "onScreenText": {
+                "type": "string",
+                "maxLength": 1200
+              },
+              "visualDirection": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "mediaRequest": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "brand",
+                      "upload",
+                      "stock",
+                      "generated_image",
+                      "generated_video",
+                      "screen_capture",
+                      "motion_graphics"
+                    ]
+                  },
+                  "query": {
+                    "type": "string",
+                    "maxLength": 1000
+                  },
+                  "assetId": {
+                    "type": "string",
+                    "maxLength": 160
+                  }
+                },
+                "required": [
+                  "kind",
+                  "query",
+                  "assetId"
+                ]
+              },
+              "transition": {
+                "type": "string",
+                "enum": [
+                  "cut",
+                  "fade",
+                  "dissolve",
+                  "slide",
+                  "match_cut",
+                  "custom"
+                ]
+              },
+              "captions": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "locks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "field": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "revision": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "reason": {
+                      "type": "string",
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "field",
+                    "revision",
+                    "reason"
+                  ]
+                },
+                "maxItems": 30
+              }
+            },
+            "required": [
+              "id",
+              "order",
+              "title",
+              "purpose",
+              "durationSeconds",
+              "narration",
+              "onScreenText",
+              "visualDirection",
+              "mediaRequest",
+              "transition",
+              "captions",
+              "locks"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 240
+        }
+      },
+      "required": [
+        "style",
+        "narration",
+        "captions",
+        "music",
+        "scenes"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "research",
+          "transcription",
+          "stock_search",
+          "image_generation",
+          "video_generation",
+          "narration",
+          "composition",
+          "media_editing",
+          "captions",
+          "audio_mix",
+          "quality_review",
+          "export"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "routing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "selections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "capability": {
+                "type": "string",
+                "enum": [
+                  "research",
+                  "transcription",
+                  "stock_search",
+                  "image_generation",
+                  "video_generation",
+                  "narration",
+                  "composition",
+                  "media_editing",
+                  "captions",
+                  "audio_mix",
+                  "quality_review",
+                  "export"
+                ]
+              },
+              "provider": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "model": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "runtime": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "approved": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "capability",
+              "provider",
+              "model",
+              "runtime",
+              "approved"
+            ]
+          },
+          "maxItems": 50
+        },
+        "compositor": {
+          "type": "string",
+          "enum": [
+            "hyperframes",
+            "remotion",
+            "ffmpeg",
+            "external"
+          ]
+        },
+        "fallbackPolicy": {
+          "type": "string",
+          "enum": [
+            "fail",
+            "ask",
+            "approved_local_only"
+          ]
+        }
+      },
+      "required": [
+        "selections",
+        "compositor",
+        "fallbackPolicy"
+      ]
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "const": "USD"
+        },
+        "maxMicroUsd": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "estimatedMicroUsd": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "approvalRequiredAboveMicroUsd": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "estimates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "capability": {
+                "type": "string",
+                "enum": [
+                  "research",
+                  "transcription",
+                  "stock_search",
+                  "image_generation",
+                  "video_generation",
+                  "narration",
+                  "composition",
+                  "media_editing",
+                  "captions",
+                  "audio_mix",
+                  "quality_review",
+                  "export"
+                ]
+              },
+              "provider": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "estimatedMicroUsd": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "units": {
+                "type": "number",
+                "minimum": 0
+              },
+              "unitName": {
+                "type": "string",
+                "maxLength": 80
+              }
+            },
+            "required": [
+              "capability",
+              "provider",
+              "estimatedMicroUsd",
+              "units",
+              "unitName"
+            ]
+          },
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "currency",
+        "maxMicroUsd",
+        "estimatedMicroUsd",
+        "approvalRequiredAboveMicroUsd",
+        "estimates"
+      ]
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currentStage": {
+          "type": "string",
+          "enum": [
+            "intake",
+            "proposal",
+            "script",
+            "storyboard",
+            "assets",
+            "edit",
+            "compose",
+            "review",
+            "export"
+          ]
+        },
+        "approvalStages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "intake",
+              "proposal",
+              "script",
+              "storyboard",
+              "assets",
+              "edit",
+              "compose",
+              "review",
+              "export"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "completedStages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "intake",
+              "proposal",
+              "script",
+              "storyboard",
+              "assets",
+              "edit",
+              "compose",
+              "review",
+              "export"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "currentStage",
+        "approvalStages",
+        "completedStages"
+      ]
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "mp4",
+              "webm",
+              "mov",
+              "gif",
+              "srt",
+              "vtt",
+              "thumbnail",
+              "script",
+              "project_bundle"
+            ]
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 7680
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 7680
+          },
+          "fps": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 120
+          },
+          "codec": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "standard",
+              "delivery"
+            ]
+          }
+        },
+        "required": [
+          "kind",
+          "codec",
+          "quality"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 20
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "code": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "error",
+                  "review",
+                  "warning"
+                ]
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "deterministic",
+                  "human",
+                  "ai_suggestion"
+                ]
+              },
+              "location": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "evidence": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "proposedFix": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "open",
+                  "resolved",
+                  "accepted"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "code",
+              "severity",
+              "kind",
+              "location",
+              "evidence",
+              "proposedFix",
+              "status"
+            ]
+          },
+          "maxItems": 500
+        },
+        "exactRevisionReviewed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "findings",
+        "exactRevisionReviewed"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "identity",
+    "brief",
+    "brand",
+    "sources",
+    "creative",
+    "capabilities",
+    "routing",
+    "budget",
+    "workflow",
+    "outputs",
+    "quality"
+  ]
+}

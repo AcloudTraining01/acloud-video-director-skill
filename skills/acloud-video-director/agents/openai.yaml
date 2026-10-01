@@ -1,0 +1,4 @@
+interface:
+  display_name: "ACloud Video Director"
+  short_description: "Plan and govern complete video productions"
+  default_prompt: "Use $acloud-video-director to turn this video request into a validated production plan."

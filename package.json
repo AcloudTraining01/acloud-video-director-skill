@@ -1,0 +1,15 @@
+{
+  "name": "acloud-video-director-skill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Portable ACloud Video Director agent skill and canonical VideoProjectSpec validator",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node scripts/validate-project-spec.mjs"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  }
+}

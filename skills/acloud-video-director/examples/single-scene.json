@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0",
+  "identity": {
+    "project": { "id": "project-1", "revision": 1 },
+    "title": "Launch announcement",
+    "route": "single_scene",
+    "createdFrom": "questionnaire"
+  },
+  "brief": {
+    "goal": "Introduce the new planner",
+    "audience": "Remote team managers",
+    "platform": "instagram",
+    "language": "English",
+    "targetDurationSeconds": 12,
+    "aspectRatio": "9:16",
+    "tone": "Clear and optimistic",
+    "callToAction": "Join the waitlist",
+    "constraints": []
+  },
+  "brand": { "brandKit": null, "snapshotLabel": "" },
+  "sources": [],
+  "creative": {
+    "style": "Modern product motion",
+    "narration": {
+      "enabled": true,
+      "voiceId": "local-demo",
+      "providerPreference": "local",
+      "pronunciationNotes": ""
+    },
+    "captions": { "enabled": true, "style": "clean" },
+    "music": { "enabled": false, "assetId": "", "license": "", "ducking": true },
+    "scenes": [
+      {
+        "id": "11111111-1111-4111-8111-111111111111",
+        "order": 0,
+        "title": "Announcement",
+        "purpose": "State the promise and action",
+        "durationSeconds": 12,
+        "narration": "Plan the work that matters.",
+        "onScreenText": "Plan what matters",
+        "visualDirection": "One product card resolves into the logo.",
+        "mediaRequest": { "kind": "motion_graphics", "query": "", "assetId": "" },
+        "transition": "cut",
+        "captions": "Plan the work that matters.",
+        "locks": []
+      }
+    ]
+  },
+  "capabilities": ["narration", "composition", "captions", "audio_mix", "quality_review", "export"],
+  "routing": { "selections": [], "compositor": "hyperframes", "fallbackPolicy": "ask" },
+  "budget": {
+    "currency": "USD",
+    "maxMicroUsd": 500000,
+    "estimatedMicroUsd": 0,
+    "approvalRequiredAboveMicroUsd": 0,
+    "estimates": []
+  },
+  "workflow": {
+    "currentStage": "intake",
+    "approvalStages": ["proposal", "storyboard", "review"],
+    "completedStages": []
+  },
+  "outputs": [
+    { "kind": "mp4", "width": 1080, "height": 1920, "fps": 30, "codec": "h264", "quality": "draft" },
+    { "kind": "srt", "codec": "", "quality": "standard" }
+  ],
+  "quality": { "findings": [], "exactRevisionReviewed": false }
+}
