@@ -2,6 +2,15 @@
   "questionnaireVersion": 1,
   "sharedQuestions": [
     {
+      "id": "title",
+      "target": "identity.title",
+      "label": "What should we call this video project?",
+      "help": "Use a clear working title. You can change it later without changing the selected format.",
+      "input": "text",
+      "required": true,
+      "placeholder": "For example: Remote Team Planner Launch"
+    },
+    {
       "id": "objective",
       "target": "brief.goal",
       "label": "What should this video help the viewer understand, feel, or do?",

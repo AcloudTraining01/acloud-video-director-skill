@@ -14,7 +14,7 @@ test("accepts the portable single-scene example", () => {
 test("defines eight complete, uniquely named format routes", () => {
   const catalog = JSON.parse(fs.readFileSync(catalogUrl, "utf8"));
   assert.equal(catalog.questionnaireVersion, 1);
-  assert.equal(catalog.sharedQuestions.length, 8);
+  assert.equal(catalog.sharedQuestions.length, 9);
   assert.equal(catalog.routes.length, 8);
   assert.equal(new Set(catalog.routes.map(route => route.id)).size, 8);
   assert.equal(new Set(catalog.routes.map(route => route.name)).size, 8);

@@ -3,7 +3,7 @@ name: acloud-video-director
 description: Plan, route, and govern video projects from a questionnaire or brief through storyboard, assets, approval, rendering, QA, and export. Use for end-to-end video production planning and orchestration; use a media editing skill for a single low-level edit.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   author: Acloud TechSolutions
   tags: [video-production, storyboarding, orchestration, ffmpeg, hyperframes]
 ---

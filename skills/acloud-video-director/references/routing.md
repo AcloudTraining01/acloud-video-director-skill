@@ -19,6 +19,7 @@ Ask these after the format is selected. Store each answer in the target field; d
 
 | Question | Target | Required |
 | --- | --- | --- |
+| What should we call this video project? | `identity.title` | Yes |
 | What should this video help the viewer understand, feel, or do? | `brief.goal` | Yes |
 | Who is this video for? | `brief.audience` | Yes |
 | Where will the main version be watched? | `brief.platform` | Yes |
@@ -175,7 +176,7 @@ Create a narration-led video using typography, diagrams, stock, stills, screen c
 ## Routing rules
 
 - Keep `identity.route` and the selected route definition aligned.
-- Save the five route-specific responses in `routePlan.answers`; shared responses populate their canonical `brief` fields.
+- Save the five route-specific responses in `routePlan.answers`; shared responses populate `identity` and `brief` fields.
 - Start from the route defaults, then record justified changes. A default is a planning aid, not a provider commitment.
 - Do not infer a premium generation provider from a route. A Faceless Explainer can use local narration, licensed stills, motion graphics, and FFmpeg.
 - When more than one route fits, choose the route that matches the primary timeline. Use additional `outputs` for simple variants and separate linked specs when approval histories or timelines diverge.
